@@ -1,0 +1,855 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.5f1 (8095aa901b9b) revision 8426922'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.928; Version 2009; 64bit' Language: 'en' Physical Memory: 16316 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\Softwares\Unity Editors\2020.3.5f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Documents/GitHub/Shinsengumi
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+56275
+Successfully changed project path to: D:/Documents/GitHub/Shinsengumi
+D:/Documents/GitHub/Shinsengumi
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 26.63 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.5f1 (8095aa901b9b)
+[Subsystems] Discovering subsystems at path D:/Softwares/Unity Editors/2020.3.5f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Documents/GitHub/Shinsengumi/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 Ti (ID=0x2182)
+    Vendor:   
+    VRAM:     5991 MB
+    Driver:   27.21.14.6647
+Initialize mono
+Mono path[0] = 'D:/Softwares/Unity Editors/2020.3.5f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Softwares/Unity Editors/2020.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Softwares/Unity Editors/2020.3.5f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56144
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Softwares/Unity Editors/2020.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000894 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 43.83 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.184 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000655 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.950 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1784 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 84.7 MB.
+System memory in use after: 84.7 MB.
+
+Unloading 102 unused Assets to reduce memory usage. Loaded Objects now: 2221.
+Total: 2.704500 ms (FindLiveObjects: 0.376600 ms CreateObjectMapping: 0.126700 ms MarkObjects: 2.037500 ms  DeleteObjects: 0.162100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Prototype Assets/Character Animator.controller
+  artifactKey: Guid(14faadb34144dca4f890a3d572d41385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prototype Assets/Character Animator.controller using Guid(14faadb34144dca4f890a3d572d41385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b38f44125bfcdb5200a90f25b59f5ae') in 0.521191 seconds
+  Import took 0.880953 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 51924.615501 seconds.
+  path: Assets/Samurai_Katana/Samurai_Katana.unity
+  artifactKey: Guid(189de9f4d10e54845bfe41de87295c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Samurai_Katana.unity using Guid(189de9f4d10e54845bfe41de87295c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b2d63be384d1e392d30b917f13bacc6') in 0.017248 seconds
+  Import took 0.067877 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.662228 seconds.
+  path: Assets/Samurai_Katana/Animations/Animations List.controller
+  artifactKey: Guid(2d09c19ee97f0b54b9b2d39ae9642b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Animations List.controller using Guid(2d09c19ee97f0b54b9b2d39ae9642b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fba993d0527ac85648fa59ba0d47a15f') in 0.056291 seconds
+  Import took 0.061635 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000670 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.901 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1736 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.7 MB.
+System memory in use after: 80.7 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2226.
+Total: 3.005700 ms (FindLiveObjects: 0.158500 ms CreateObjectMapping: 0.053000 ms MarkObjects: 2.688300 ms  DeleteObjects: 0.104700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 341.404783 seconds.
+  path: Assets/Samurai_Katana/Animations/Animations List.controller
+  artifactKey: Guid(2d09c19ee97f0b54b9b2d39ae9642b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Animations List.controller using Guid(2d09c19ee97f0b54b9b2d39ae9642b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39708e68d8a58730445fbeb73d78ac97') in 0.052125 seconds
+  Import took 0.088886 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.087432 seconds.
+  path: Assets/Samurai_Katana/Animations/Animations List.controller
+  artifactKey: Guid(2d09c19ee97f0b54b9b2d39ae9642b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Animations List.controller using Guid(2d09c19ee97f0b54b9b2d39ae9642b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39708e68d8a58730445fbeb73d78ac97') in 0.035948 seconds
+  Import took 0.069189 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000561 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.803 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.7 MB.
+System memory in use after: 80.7 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2230.
+Total: 2.274600 ms (FindLiveObjects: 0.155600 ms CreateObjectMapping: 0.051700 ms MarkObjects: 1.999100 ms  DeleteObjects: 0.067400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000584 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.768 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.7 MB.
+System memory in use after: 80.7 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2234.
+Total: 2.410000 ms (FindLiveObjects: 0.204800 ms CreateObjectMapping: 0.059700 ms MarkObjects: 2.074900 ms  DeleteObjects: 0.069800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 288.216026 seconds.
+  path: Assets/Samurai_Katana/Animations/Animations List.controller
+  artifactKey: Guid(2d09c19ee97f0b54b9b2d39ae9642b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Animations List.controller using Guid(2d09c19ee97f0b54b9b2d39ae9642b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0f950911e439da1c19c063e578f5886') in 0.042446 seconds
+  Import took 0.048053 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.212925 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '772282c1ab743aa4ad04059a8b21e9b2') in 0.026447 seconds
+  Import took 0.057356 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000499 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.759 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.7 MB.
+System memory in use after: 80.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2238.
+Total: 2.366000 ms (FindLiveObjects: 0.161400 ms CreateObjectMapping: 0.062400 ms MarkObjects: 2.070200 ms  DeleteObjects: 0.071100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000536 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.788 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.8 MB.
+System memory in use after: 80.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2242.
+Total: 2.888100 ms (FindLiveObjects: 0.168300 ms CreateObjectMapping: 0.060400 ms MarkObjects: 2.572900 ms  DeleteObjects: 0.085600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 351.788286 seconds.
+  path: Assets/Samurai_Katana/Materials/Texture_Blue.mat
+  artifactKey: Guid(0154afddc59f2124999343305c0d0917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Materials/Texture_Blue.mat using Guid(0154afddc59f2124999343305c0d0917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '178dc850efe925d03f323c897bf12716') in 0.074244 seconds
+  Import took 0.102492 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/Samurai_Katana/Materials/Texture_Yellow.mat
+  artifactKey: Guid(72e2e94a1cf564d4d8737aaf853f9a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Materials/Texture_Yellow.mat using Guid(72e2e94a1cf564d4d8737aaf853f9a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fb5f05b485329ed32325f440174210d') in 0.010358 seconds
+  Import took 0.012598 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000120 seconds.
+  path: Assets/Samurai_Katana/Materials/Texture_White.mat
+  artifactKey: Guid(59c4288f9391bc84bb5be3be6f89d66e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Materials/Texture_White.mat using Guid(59c4288f9391bc84bb5be3be6f89d66e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa68ab0961207f09448b3b668e69c591') in 0.010327 seconds
+  Import took 0.022877 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/Samurai_Katana/Materials/Texture_Gray.mat
+  artifactKey: Guid(812af11b0f72fb9499bc14ceae765952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Materials/Texture_Gray.mat using Guid(812af11b0f72fb9499bc14ceae765952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6afe352aac5d6d8e3c99ffbe70c83ee2') in 0.008998 seconds
+  Import took 0.047580 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.353191 seconds.
+  path: Assets/Samurai_Katana/Mesh/Gird.FBX
+  artifactKey: Guid(c836a1688bcb0a64ea2997dd9622754c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/Gird.FBX using Guid(c836a1688bcb0a64ea2997dd9622754c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '248984d25f97d4b3eeab087f46a08457') in 0.122931 seconds
+  Import took 0.125449 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Samurai_Katana/Mesh/Stage.FBX
+  artifactKey: Guid(83221f47a56ec134ea415777e5adede1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/Stage.FBX using Guid(83221f47a56ec134ea415777e5adede1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f37e6885ae0f8a9e2e0dc5e70eaa666') in 0.024499 seconds
+  Import took 0.051816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Samurai_Katana/Mesh/T-Pose.FBX
+  artifactKey: Guid(8afe723514f619143a45ea089476b2cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/T-Pose.FBX using Guid(8afe723514f619143a45ea089476b2cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de25604aac6ef990d721e597ae6b2f6c') in 0.117079 seconds
+  Import took 0.119633 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.185858 seconds.
+  path: Assets/Samurai_Katana/Mesh/Stage.fbm
+  artifactKey: Guid(d49c00bc5489b654fa5d0c033e4f3619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/Stage.fbm using Guid(d49c00bc5489b654fa5d0c033e4f3619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd726f59306d99a4b8afb7855c91bd007') in 0.004147 seconds
+  Import took 0.006569 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.808684 seconds.
+  path: Assets/Samurai_Katana/Mesh/Stage.fbm/Texture_Gray.jpg
+  artifactKey: Guid(f2a5d636bb2da504f80809a3d4e0f17f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/Stage.fbm/Texture_Gray.jpg using Guid(f2a5d636bb2da504f80809a3d4e0f17f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a690fe86ff2e7c23853364f9cab41133') in 0.149597 seconds
+  Import took 0.171636 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/Samurai_Katana/Mesh/Stage.fbm/Texture_White.jpg
+  artifactKey: Guid(d40074ba6ffc5d1488e203e6500c0e59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/Stage.fbm/Texture_White.jpg using Guid(d40074ba6ffc5d1488e203e6500c0e59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f39274ffd1006b6ed11bd7cd7320948') in 0.006531 seconds
+  Import took 0.038854 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.464543 seconds.
+  path: Assets/Samurai_Katana/Mesh/T-Pose.fbm
+  artifactKey: Guid(c490d49a706f55d48bf00f1f3687f740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/T-Pose.fbm using Guid(c490d49a706f55d48bf00f1f3687f740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75308ae3473cad0375cd2be5200d3c8c') in 0.004530 seconds
+  Import took 0.007128 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001635 seconds.
+  path: Assets/Samurai_Katana/Mesh/T-Pose.fbm
+  artifactKey: Guid(c490d49a706f55d48bf00f1f3687f740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/T-Pose.fbm using Guid(c490d49a706f55d48bf00f1f3687f740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75308ae3473cad0375cd2be5200d3c8c') in 0.001283 seconds
+  Import took 0.003822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.120552 seconds.
+  path: Assets/Samurai_Katana/Mesh/Materials/Grid_1.mat
+  artifactKey: Guid(974e8f24809f03b4c9133c2ca60d8d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/Materials/Grid_1.mat using Guid(974e8f24809f03b4c9133c2ca60d8d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c8a96c42dda6c46bfde916914420bd6') in 0.008402 seconds
+  Import took 0.041026 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.351123 seconds.
+  path: Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_Blue.jpg
+  artifactKey: Guid(16a4ac482107d5c4f8a48ce5f0e5c2cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_Blue.jpg using Guid(16a4ac482107d5c4f8a48ce5f0e5c2cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98d773a96c1d935cc2f122f413ccbc26') in 0.006036 seconds
+  Import took 0.013301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_White.jpg
+  artifactKey: Guid(09ef8493ecd040047b9aeb0bc3900872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_White.jpg using Guid(09ef8493ecd040047b9aeb0bc3900872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47dd3e4d4cd374fb1da07c1d1262dea8') in 0.003833 seconds
+  Import took 0.006037 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_Yellow.jpg
+  artifactKey: Guid(68c7293afc581564790438998d41de5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_Yellow.jpg using Guid(68c7293afc581564790438998d41de5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2417ca612439f9da0f525139d0e34f89') in 0.006116 seconds
+  Import took 0.037144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_Gray.jpg
+  artifactKey: Guid(d54530338592e2044afabc2dc053c527) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_Gray.jpg using Guid(d54530338592e2044afabc2dc053c527) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fdb5ef9d6e2fc09164679547efac00f') in 0.004096 seconds
+  Import took 0.034390 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000927 seconds.
+  path: Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_Gray.jpg
+  artifactKey: Guid(d54530338592e2044afabc2dc053c527) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/T-Pose.fbm/Texture_Gray.jpg using Guid(d54530338592e2044afabc2dc053c527) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fdb5ef9d6e2fc09164679547efac00f') in 0.004088 seconds
+  Import took 0.006422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.577110 seconds.
+  path: Assets/Samurai_Katana/Mesh/Gird.fbm/Grid_1.jpg
+  artifactKey: Guid(3aa13796bd48fa647a3149b8114bcc38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh/Gird.fbm/Grid_1.jpg using Guid(3aa13796bd48fa647a3149b8114bcc38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb5d45a6c8ac3268a5c72b31b6da5926') in 0.005979 seconds
+  Import took 0.030516 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000576 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.784 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.5 MB.
+System memory in use after: 98.5 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2295.
+Total: 2.324300 ms (FindLiveObjects: 0.199700 ms CreateObjectMapping: 0.056400 ms MarkObjects: 1.993900 ms  DeleteObjects: 0.073700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.613350 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/ChargeAttk.FBX
+  artifactKey: Guid(81167ecefe17ad8488efca1275d0934b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/ChargeAttk.FBX using Guid(81167ecefe17ad8488efca1275d0934b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01b31d954ab9d86fb4f3f965503e62e0') in 0.083794 seconds
+  Import took 0.098496 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Dodge_Back.FBX
+  artifactKey: Guid(af1c11eaba6c164408668fdf66632f78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Dodge_Back.FBX using Guid(af1c11eaba6c164408668fdf66632f78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e27134456d86b5bd11a754c672a4fec2') in 0.040865 seconds
+  Import took 0.043379 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/StrongAttk4.FBX
+  artifactKey: Guid(ec9252f4902608f43a303175c69bde39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/StrongAttk4.FBX using Guid(ec9252f4902608f43a303175c69bde39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aad4f5b2f15c6ee21563e7a112be855c') in 0.038269 seconds
+  Import took 0.040880 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Dodge_Right.FBX
+  artifactKey: Guid(fa4feeaa99ff17e4bb9ebea785fadb23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Dodge_Right.FBX using Guid(fa4feeaa99ff17e4bb9ebea785fadb23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c6bdca7ba412a4ad6b4755d3fd3b218') in 0.036897 seconds
+  Import took 0.039460 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000148 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/MediumAttk3.FBX
+  artifactKey: Guid(7daa696bc1d76134ea39c3d3004feb1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/MediumAttk3.FBX using Guid(7daa696bc1d76134ea39c3d3004feb1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ddf577a091e443ca5a4fe63ed17a9d2') in 0.036895 seconds
+  Import took 0.067666 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/StrongAttk3.FBX
+  artifactKey: Guid(7d7eafcf0a36b4a41b684f602c8be795) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/StrongAttk3.FBX using Guid(7d7eafcf0a36b4a41b684f602c8be795) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '606c257e75a21c488c4970c38e1c5da0') in 0.038050 seconds
+  Import took 0.040644 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/StrongAttk2.FBX
+  artifactKey: Guid(6cecfe12e668fc04bb5913984a7d81cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/StrongAttk2.FBX using Guid(6cecfe12e668fc04bb5913984a7d81cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68c2f8e95e68c8ab5d3d6a8646e0dd1a') in 0.037593 seconds
+  Import took 0.055877 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Dash_Right.FBX
+  artifactKey: Guid(25a9e28fd7dc10a40b532ea8262a38ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Dash_Right.FBX using Guid(25a9e28fd7dc10a40b532ea8262a38ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ce04d7a088ba796ebef4986a0433228') in 0.037924 seconds
+  Import took 0.040802 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/HitBlockLeft.FBX
+  artifactKey: Guid(eb2bf1e4709c4e642bf710ccf6e8b17a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/HitBlockLeft.FBX using Guid(eb2bf1e4709c4e642bf710ccf6e8b17a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95cdb0e706e4550607e0248120cc662d') in 0.040481 seconds
+  Import took 0.043255 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000122 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/LightAttk4.FBX
+  artifactKey: Guid(5bf3515063fb43c45955f9907f87ffcc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/LightAttk4.FBX using Guid(5bf3515063fb43c45955f9907f87ffcc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '792b1beeb57c7b7add22f4821f8c4f82') in 0.040300 seconds
+  Import took 0.057100 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/RoundKick.FBX
+  artifactKey: Guid(bd33db8bb37789349bea1fa519a7adc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/RoundKick.FBX using Guid(bd33db8bb37789349bea1fa519a7adc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd19720c00090936d662f827bd3753b69') in 0.042703 seconds
+  Import took 0.045484 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/LightAttk1.FBX
+  artifactKey: Guid(1969cecfc0779a445bf43ecf25671592) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/LightAttk1.FBX using Guid(1969cecfc0779a445bf43ecf25671592) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f48b74d2aceda5d40823ba159383eaae') in 0.042159 seconds
+  Import took 0.069218 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/StabOnFloor.FBX
+  artifactKey: Guid(956162b396fbd3d43822efd1baf275dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/StabOnFloor.FBX using Guid(956162b396fbd3d43822efd1baf275dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b9abd1c81e0281ff68c0c0496d2e872') in 0.043177 seconds
+  Import took 0.045979 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000144 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/LightAttk2.FBX
+  artifactKey: Guid(c4e4ce1567ebf594e930d5c9275ba77a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/LightAttk2.FBX using Guid(c4e4ce1567ebf594e930d5c9275ba77a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7472d7a08791c92935adae70ed111926') in 0.040393 seconds
+  Import took 0.043247 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000118 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/HitBlockRight.FBX
+  artifactKey: Guid(42832aeb83967de449b69074d0bab4b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/HitBlockRight.FBX using Guid(42832aeb83967de449b69074d0bab4b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a7dc674ed51f7ab3e6429ac8c2ec233') in 0.040779 seconds
+  Import took 0.043385 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000132 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/HardAttk.FBX
+  artifactKey: Guid(8720f77053a577c449f5f807615db841) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/HardAttk.FBX using Guid(8720f77053a577c449f5f807615db841) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5498cbaa6b95d25b57ab77a21474fbfe') in 0.040625 seconds
+  Import took 0.066521 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Sprint_StrongAttk.FBX
+  artifactKey: Guid(9dae2c11d0a477b4281dd8f5b6c1637e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Sprint_StrongAttk.FBX using Guid(9dae2c11d0a477b4281dd8f5b6c1637e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '753c6e491300b5ac7a4fc166e49cc0b5') in 0.039786 seconds
+  Import took 0.042474 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000129 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/MediumAttk1.FBX
+  artifactKey: Guid(cff289fdcfce45944995107eeee3d2af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/MediumAttk1.FBX using Guid(cff289fdcfce45944995107eeee3d2af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '274b2c54d1eaed532eb4148ba856758c') in 0.041813 seconds
+  Import took 0.044590 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000121 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/SideKick.FBX
+  artifactKey: Guid(cab5e74543a372d41bc4891404c56110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/SideKick.FBX using Guid(cab5e74543a372d41bc4891404c56110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '842e8ed3fcd92f7c6873d3b2c1b6a9f6') in 0.041490 seconds
+  Import took 0.066694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Dash_Left.FBX
+  artifactKey: Guid(53a8687908e02484192c6614b0626624) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Dash_Left.FBX using Guid(53a8687908e02484192c6614b0626624) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99e6b4f18e59531ac5799ab7e7ed0c10') in 0.040542 seconds
+  Import took 0.043259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/LightAttk3.FBX
+  artifactKey: Guid(ebe8f834670afc04395baf60a870250c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/LightAttk3.FBX using Guid(ebe8f834670afc04395baf60a870250c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8578ba7deef58f7410635e81fb4ddf0b') in 0.044441 seconds
+  Import took 0.081918 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/StabInChest_Hit.FBX
+  artifactKey: Guid(f8ae1d1cd81d76f4c83a061ee88b8497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/StabInChest_Hit.FBX using Guid(f8ae1d1cd81d76f4c83a061ee88b8497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94bbc589a4c67448029dfc78b99642bc') in 0.043094 seconds
+  Import took 0.045962 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Dash_Front.FBX
+  artifactKey: Guid(9b394944acb641a4b98dbd346a824df1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Dash_Front.FBX using Guid(9b394944acb641a4b98dbd346a824df1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03d14df3f79d91ad8e87f9daa57cd41b') in 0.044796 seconds
+  Import took 0.047675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/StabInChest_Attempt.FBX
+  artifactKey: Guid(ed8abf3661b94fe46819e3e35f0e4f97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/StabInChest_Attempt.FBX using Guid(ed8abf3661b94fe46819e3e35f0e4f97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3438f71a1639eeec33107594e2af355c') in 0.041530 seconds
+  Import took 0.044579 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000122 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Dodge_Front.FBX
+  artifactKey: Guid(5c33b0053a2a38a439b8df0d1af369ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Dodge_Front.FBX using Guid(5c33b0053a2a38a439b8df0d1af369ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e391c462a98e33ec8b7a1ddd701bf562') in 0.041418 seconds
+  Import took 0.044145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Dash_Back.FBX
+  artifactKey: Guid(807b557f8472f99488a3663e7c719b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Dash_Back.FBX using Guid(807b557f8472f99488a3663e7c719b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f02bc0aa7319658502cef101c2e3391') in 0.040600 seconds
+  Import took 0.043438 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000116 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/MediumAttk2.FBX
+  artifactKey: Guid(8bdcc257ab9629b439f0d5ff37f9172d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/MediumAttk2.FBX using Guid(8bdcc257ab9629b439f0d5ff37f9172d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07a692166226bb54abb1e5d58671cef6') in 0.041129 seconds
+  Import took 0.044001 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/StrongAttk1.FBX
+  artifactKey: Guid(9ffd49b1de5e7e94c9717fcaf3015cd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/StrongAttk1.FBX using Guid(9ffd49b1de5e7e94c9717fcaf3015cd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d286be82b5a3c76121892122a212d7f') in 0.042649 seconds
+  Import took 0.056899 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Sprint_LightAttk.FBX
+  artifactKey: Guid(0ba578beaa7d6f5469a7f53a42f4223b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Sprint_LightAttk.FBX using Guid(0ba578beaa7d6f5469a7f53a42f4223b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11c3766bfe8387168c4db729c9842fcc') in 0.041805 seconds
+  Import took 0.044552 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000118 seconds.
+  path: Assets/Samurai_Katana/Animations/Action/Dodge_Left.FBX
+  artifactKey: Guid(b2ea371fe70684844b4f828338768b9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Action/Dodge_Left.FBX using Guid(b2ea371fe70684844b4f828338768b9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3574b78becb72be6afb817cf88866d21') in 0.041614 seconds
+  Import took 0.044382 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000715 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.759 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 99.9 MB.
+System memory in use after: 100.0 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2300.
+Total: 2.175700 ms (FindLiveObjects: 0.153600 ms CreateObjectMapping: 0.052000 ms MarkObjects: 1.901500 ms  DeleteObjects: 0.068000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 135.019429 seconds.
+  path: Assets/Scripts/Player Character/Player Components/Player_Brain.cs
+  artifactKey: Guid(330a13ae8fa96a64fb74d6ae1550d4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player Character/Player Components/Player_Brain.cs using Guid(330a13ae8fa96a64fb74d6ae1550d4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99221aba391735c8176448715141612f') in 0.009494 seconds
+  Import took 0.011963 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001952 seconds.
+  path: Assets/Scripts/Player Character/Player Components/Player_Brain.cs
+  artifactKey: Guid(330a13ae8fa96a64fb74d6ae1550d4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player Character/Player Components/Player_Brain.cs using Guid(330a13ae8fa96a64fb74d6ae1550d4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99221aba391735c8176448715141612f') in 0.001227 seconds
+  Import took 0.003518 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000568 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.799 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 99.9 MB.
+System memory in use after: 99.9 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2304.
+Total: 2.933500 ms (FindLiveObjects: 0.193500 ms CreateObjectMapping: 0.061200 ms MarkObjects: 2.586200 ms  DeleteObjects: 0.091500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.895682 seconds.
+  path: Assets/Scripts/Player Character/Player Components/Player_Brain.cs
+  artifactKey: Guid(330a13ae8fa96a64fb74d6ae1550d4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player Character/Player Components/Player_Brain.cs using Guid(330a13ae8fa96a64fb74d6ae1550d4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df4e488e50ecbcfa7409440de1d166c1') in 0.003311 seconds
+  Import took 0.005772 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000529 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.783 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 99.9 MB.
+System memory in use after: 99.9 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2308.
+Total: 2.630300 ms (FindLiveObjects: 0.185000 ms CreateObjectMapping: 0.061200 ms MarkObjects: 2.309200 ms  DeleteObjects: 0.074000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 122.285000 seconds.
+  path: Assets/Samurai_Katana
+  artifactKey: Guid(eb08c14c6dfacac4fbecaef803ec38d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana using Guid(eb08c14c6dfacac4fbecaef803ec38d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be66a639566bb5f4394976b3a5237abc') in 0.006561 seconds
+  Import took 0.009024 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.104909 seconds.
+  path: Assets/Samurai_Katana/Mesh
+  artifactKey: Guid(49fa684be8d671848a5ef5a4cde90fa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Mesh using Guid(49fa684be8d671848a5ef5a4cde90fa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed0f28973065727d5f1ad3052ae2b407') in 0.004573 seconds
+  Import took 0.042334 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 45.531628 seconds.
+  path: Assets/Samurai_Katana/Animations/Basic/StandIdle.FBX
+  artifactKey: Guid(5a30133f997de1f47b9794d7ba2f08fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samurai_Katana/Animations/Basic/StandIdle.FBX using Guid(5a30133f997de1f47b9794d7ba2f08fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6103919a9998a1fda9890db1ebd7987') in 0.081418 seconds
+  Import took 0.084546 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000548 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.769 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1735 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 99.9 MB.
+System memory in use after: 100.0 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2313.
+Total: 2.209400 ms (FindLiveObjects: 0.158300 ms CreateObjectMapping: 0.051500 ms MarkObjects: 1.932300 ms  DeleteObjects: 0.066700 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
