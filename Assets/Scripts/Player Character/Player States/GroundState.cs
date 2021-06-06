@@ -24,8 +24,6 @@ public class GroundState : State
     public override void HandleInput()
     {
         base.HandleInput();
-
-        xInput = Input.GetAxisRaw("Horizontal");
     }
 
     public override void LogicUpdate()
@@ -39,7 +37,7 @@ public class GroundState : State
         base.PhysicsUpdate();
         character.Movement.CheckForGround();
 
-        character.Movement.MovePlayer(xInput * Time.fixedDeltaTime);
+        character.Movement.MovePlayer(character.PlayerInput.MoveInput * Time.fixedDeltaTime);
     }
 
 

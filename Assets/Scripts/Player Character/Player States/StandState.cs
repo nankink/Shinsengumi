@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class StandState : GroundState
 {
-    bool jumping, crouching, rolling;
+    //bool jumping, crouching, rolling;
+
+    protected bool p_Attack;
 
     public StandState(Player_Brain character, StateMachine stateMachine) : base(character, stateMachine) { }
+
 
     public override void Enter()
     {
         base.Enter();
-        crouching = false;
-        rolling = false;
     }
 
     public override void Exit()
@@ -23,35 +24,31 @@ public class StandState : GroundState
     public override void HandleInput()
     {
         base.HandleInput();
-
-        if (Input.GetButtonDown("Jump")) jumping = true;
-
-        crouching = Input.GetButtonDown("Crouch");
-
-        rolling = Input.GetButtonDown("Roll");
     }
 
     public override void LogicUpdate()
     {
-        Debug.Log("crouching: "+ crouching);
 
         base.LogicUpdate();
-        if (rolling && character.cooldownSystem.IsOnCooldown(character.Movement.Id)) { return; }
-        else if (rolling)
+        if (character.PlayerInput.RollInput && character.cooldownSystem.IsOnCooldown(character.Movement.Id)) { return; }
+        else if (character.PlayerInput.RollInput)
         {
-            rolling = false;
             stateMachine.ChangeState(character.rolling);
         }
 
-        if(crouching)
+        if (character.PlayerInput.CrouchInput)
         {
-           stateMachine.ChangeState(character.crouching);
+            stateMachine.ChangeState(character.crouching);
         }
 
-        if(jumping)
+        if (character.PlayerInput.JumpInput)
         {
-            jumping = false;
             stateMachine.ChangeState(character.jumping);
+        }
+
+        if (character.PlayerInput.AttackInput)
+        {
+            stateMachine.ChangeState(character.atk_1);
         }
 
     }

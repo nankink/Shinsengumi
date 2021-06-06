@@ -38,23 +38,20 @@ public class CrouchState : GroundState
     public override void HandleInput()
     {
         base.HandleInput();
-        crouchHeld = Input.GetButton("Crouch");
-        roll = Input.GetButtonDown("Roll");
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (!crouchHeld || belowCeiling)
+        if (!character.PlayerInput.CrouchInput || belowCeiling)
         {
             character.b_Animator.SetBool("isCrouching", false);
             stateMachine.ChangeState(character.standing);
         }
 
-        if (roll && character.cooldownSystem.IsOnCooldown(character.Movement.Id)) { return; }
-        else if (roll)
+        if (character.PlayerInput.RollInput && character.cooldownSystem.IsOnCooldown(character.Movement.Id)) { return; }
+        else if (character.PlayerInput.RollInput)
         {
-            character.b_Animator.SetBool("isCrouching", false);
             stateMachine.ChangeState(character.rolling);
         }
     }
@@ -65,7 +62,7 @@ public class CrouchState : GroundState
 
         belowCeiling = character.Movement.CheckForCeiling();
 
-        character.Movement.MovePlayer(xInput * walkspeed * Time.fixedDeltaTime);
+        character.Movement.MovePlayer(character.PlayerInput.MoveInput * walkspeed * Time.fixedDeltaTime);
     }
 
 

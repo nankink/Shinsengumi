@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Player_Brain : MonoBehaviour
 {
+    protected static Player_Brain pb_instance;
+    public static Player_Brain instance { get {return pb_instance;}}
+
     #region State machine and states
     public StateMachine stateMachineBrain;
 
@@ -14,10 +17,19 @@ public class Player_Brain : MonoBehaviour
     public CrouchState crouching;
     public JumpState jumping;
     public FallState falling;
+    
+    public BasicCombo1_State atk_1;
+    public BasicCombo2_State atk_2;
+    public BasicCombo3_State atk_3;
+    public BasicCombo4_State atk_4;
+
     #endregion
 
     #region Character Classes
     [HideInInspector]public Player_Movement Movement;
+    [HideInInspector]public Player_Input PlayerInput;
+    [HideInInspector]public Damageable Health;
+    [HideInInspector]public Player_Attack Attack;
     [HideInInspector]public CooldownSystem cooldownSystem;
     #endregion
 
@@ -32,10 +44,10 @@ public class Player_Brain : MonoBehaviour
     [HideInInspector]public Material meshMaterial;
     [HideInInspector]public CustomGravity customGravity;
 
-
-
     void Start()
     {
+        pb_instance = this;
+
         stateMachineBrain = new StateMachine();
         groundState = new GroundState(this, stateMachineBrain);
         standing = new StandState(this, stateMachineBrain);
@@ -44,7 +56,16 @@ public class Player_Brain : MonoBehaviour
         jumping = new JumpState(this, stateMachineBrain);
         falling = new FallState(this, stateMachineBrain);
 
+        atk_1 = new BasicCombo1_State(this, stateMachineBrain);
+        atk_2 = new BasicCombo2_State(this, stateMachineBrain);
+        atk_3 = new BasicCombo3_State(this, stateMachineBrain);
+        atk_4 = new BasicCombo4_State(this, stateMachineBrain);
+
+        PlayerInput = GetComponent<Player_Input>();
         Movement = GetComponent<Player_Movement>();
+        Attack = GetComponent<Player_Attack>();
+        Health = GetComponent<Damageable>();
+
         b_Rigidbody = GetComponent<Rigidbody>();
         customGravity = GetComponent<CustomGravity>();
 
@@ -58,8 +79,6 @@ public class Player_Brain : MonoBehaviour
     {
         stateMachineBrain.CurrentState.LogicUpdate();
         stateMachineBrain.CurrentState.HandleInput();
-
-        if(Input.GetKey(KeyCode.Y)) b_Animator.SetTrigger("Attack");
     }
 
     private void FixedUpdate()

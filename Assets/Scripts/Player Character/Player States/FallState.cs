@@ -22,7 +22,6 @@ public class FallState : GroundState
     public override void HandleInput()
     {
         base.HandleInput();
-        crounch = Input.GetButton("Crouch");
     }
 
     public override void LogicUpdate()
@@ -30,7 +29,7 @@ public class FallState : GroundState
         base.LogicUpdate();
         grounded = character.Movement.m_Grounded;
 
-        if (crounch && grounded)
+        if (character.PlayerInput.CrouchInput && grounded)
         {
             character.b_Animator.SetBool("isJumping", false);
             stateMachine.ChangeState(character.crouching);

@@ -18,13 +18,13 @@ public class RollState : State
     {
         base.Enter();
         crouch = false;
-
         character.b_Animator.SetTrigger("DoABarrelRoll");
-        
+
         // Change color
         oldColor = character.meshMaterial.color;
         character.meshMaterial.color = Color.blue;
 
+        character.b_Animator.SetBool("isCrouching", false);
         currentRollTimer = startRollTimer;
         roll = true;
         character.b_BodyCollider.isTrigger = true;
@@ -49,7 +49,6 @@ public class RollState : State
     public override void HandleInput()
     {
         base.HandleInput();
-        crouch = Input.GetButton("Crouch");
     }
 
     public override void LogicUpdate()
@@ -58,7 +57,7 @@ public class RollState : State
         if(currentRollTimer >= startRollTimer || currentRollTimer > 0) currentRollTimer -= Time.deltaTime;
         else if(currentRollTimer <= 0) roll = false;
 
-        if(crouch && !roll) stateMachine.ChangeState(character.crouching);
+        if(character.PlayerInput.CrouchInput && !roll) stateMachine.ChangeState(character.crouching);
 
         else if(!roll) stateMachine.ChangeState(character.standing);
     }
