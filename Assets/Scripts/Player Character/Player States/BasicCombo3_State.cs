@@ -2,52 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicCombo3_State : State
+public class BasicCombo3_State : Combo_State
 {
+    // State
     float currentTimeInState;
-    float maxTimeInState;
+    float maxTimeInState = 0.4f;
 
-    float minInputWindow = 0.25f;
+    // Input
+    float minInputWindow = 0.9f;
     float maxInputWindow;
 
+    // iFrame
+    float iframeTimeMinInPercent = 0.1f;
+    float iframeTimeMin;
+    float iframeTimeInPercent = 0.9f;
+    float iframeTime;
+
+    // Movement
     float delay = 0.15f;
     float moveDist = 12f;
 
     bool triggerAtk;
     bool exitAtk;
 
-    //Debug
-    Color oldColor;
-
     public BasicCombo3_State(Player_Brain character, StateMachine stateMachine) : base(character, stateMachine) { }
 
     public override void Enter()
     {
         base.Enter();
+        // Animation
         character.b_Animator.SetTrigger("Attack");
         character.Movement.MoveForward(delay, moveDist);
 
         triggerAtk = exitAtk = false;
 
+        // Timing
         currentTimeInState = 0;
-        maxTimeInState = character.b_Animator.GetCurrentAnimatorStateInfo(0).length;
+        Debug.Log("maxTimeInState 3: " + maxTimeInState);
+
+        // Input
+        minInputWindow *= maxTimeInState;
         maxInputWindow = maxTimeInState;
 
+        // iFrame
+        iframeTime = maxTimeInState * iframeTimeInPercent;
+        iframeTimeMin = maxTimeInState * iframeTimeMinInPercent;
+
+        character.Health.SetTrueInvunerabilityByTime(iframeTimeMin, iframeTime);
+        // Attack
         character.Attack.EquipMeleeWeapon(true);
-
-        // Debug
-        oldColor = character.meshMaterial.color;
-        character.meshMaterial.color = Color.yellow;
-
+        character.Attack.MeleeAttackStart();
     }
 
     public override void Exit()
     {
         base.Exit();
-        character.Attack.EquipMeleeWeapon(false);
         character.b_Animator.ResetTrigger("Attack");
+        currentTimeInState = 0;
 
-        character.meshMaterial.color = oldColor;
+        character.Attack.MeleeAttackEnd();
+        character.Attack.EquipMeleeWeapon(false);
     }
 
     public override void HandleInput()
@@ -60,7 +74,6 @@ public class BasicCombo3_State : State
         base.LogicUpdate();
         currentTimeInState += Time.deltaTime;
 
-
         if (character.PlayerInput.AttackInput)
         {
             if (currentTimeInState >= minInputWindow && currentTimeInState < maxInputWindow)
@@ -68,17 +81,14 @@ public class BasicCombo3_State : State
                 triggerAtk = true;
             }
         }
-        else
+        if (currentTimeInState >= maxInputWindow && !character.PlayerInput.AttackInput)
         {
-            if (currentTimeInState > maxTimeInState)
-            {
-                exitAtk = true;
-            }
+            exitAtk = true;
         }
 
         if (triggerAtk)
         {
-            if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95 && !character.b_Animator.IsInTransition(0))
+            if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !character.b_Animator.IsInTransition(0))
             {
                 exitAtk = false;
                 triggerAtk = false;
@@ -88,12 +98,15 @@ public class BasicCombo3_State : State
 
         if (exitAtk)
         {
-            if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95 && !character.b_Animator.IsInTransition(0))
+            if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !character.b_Animator.IsInTransition(0))
             {
                 character.b_Animator.SetTrigger("ExitCombo");
-                stateMachine.ChangeState(character.standing);
+                character.cooldownSystem.PutOnCooldown(character.Attack);
+                stateMachine.ChangeState(character.imposing);
             }
         }
+
+        character.Helpers.DisplayText(TextFieldUI.CurrentTimeInState, currentTimeInState.ToString());
     }
 
     public override void PhysicsUpdate()

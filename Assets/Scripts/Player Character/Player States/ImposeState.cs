@@ -2,25 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandState : GroundState
+public class ImposeState : GroundState
 {
-    //bool jumping, crouching, rolling;
 
-    protected bool p_Attack;
-
-    public StandState(Player_Brain character, StateMachine stateMachine) : base(character, stateMachine) { }
-
+    public ImposeState(Player_Brain character, StateMachine stateMachine) : base(character, stateMachine) { }
 
     public override void Enter()
     {
         base.Enter();
-        character.b_Animator.SetBool("isSheathed", true);
-        if(!character.Attack.isSheathed) {character.Movement.DelayMove(1f);}
+
+        character.b_Animator.SetBool("isSheathed", false);     
+        if(character.Attack.isSheathed) {character.Movement.DelayMove(1f);}
         // wait for the animation
 
-
-        character.Attack.isSheathed = true;
-        character.weapon.gameObject.SetActive(false);
+        character.Attack.isSheathed = false;
+        character.weapon.gameObject.SetActive(true);
     }
 
     public override void Exit()
@@ -35,8 +31,8 @@ public class StandState : GroundState
 
     public override void LogicUpdate()
     {
-
         base.LogicUpdate();
+
         if (character.PlayerInput.RollInput && character.cooldownSystem.IsOnCooldown(character.Movement.Id)) { return; }
         else if (character.PlayerInput.RollInput)
         {
@@ -53,23 +49,25 @@ public class StandState : GroundState
             stateMachine.ChangeState(character.jumping);
         }
 
+
         if (character.PlayerInput.SheathInput)
         {
             character.b_Animator.ResetTrigger("Sheath");
             character.b_Animator.SetTrigger("Sheath");
 
-            stateMachine.ChangeState(character.imposing);
+            stateMachine.ChangeState(character.standing);
         }
 
+        if (character.PlayerInput.AttackInput && character.cooldownSystem.IsOnCooldown(character.Attack.Id) && character.Movement.coroutineRunning) { return; }
+        else if (character.PlayerInput.AttackInput && !character.Movement.coroutineRunning)
+        {
+            stateMachine.ChangeState(character.atk_1);
+        }
 
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
-
-        if (character.b_Rigidbody.velocity.y < -0.2f) stateMachine.ChangeState(character.falling);
     }
-
 }

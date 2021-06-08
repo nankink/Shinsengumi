@@ -41,6 +41,17 @@ public class MeleeWeapon : MonoBehaviour
     public void SetOwner(GameObject owner)
     {
         mw_Owner = owner;
+        this.enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        BeginAttack(false);    
+    }
+
+    private void OnDisable()
+    {
+        EndAttack();
     }
 
     public void BeginAttack(bool throwingAttack)
@@ -133,6 +144,7 @@ public class MeleeWeapon : MonoBehaviour
         data.stopCamera = false;
 
         d.ApplyDamage(data);
+
 
         return true;
     }

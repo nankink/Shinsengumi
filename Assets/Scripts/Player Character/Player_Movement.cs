@@ -13,6 +13,8 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
     Vector3 m_Velocity = Vector3.zero;
     Vector3 targetVelocity;
     bool isFacingRight;
+    bool canMove;
+    [HideInInspector]public bool coroutineRunning;
 
     // Roll
     [Space]
@@ -74,18 +76,22 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
 
     public void MovePlayer(float move)
     {
-        move *= runSpeed;
-        if (move < 0) { isFacingRight = false; gameObject.transform.rotation = Quaternion.Euler(0, -180, 0); }
-        if (move > 0) { isFacingRight = true; gameObject.transform.rotation = Quaternion.Euler(0, 0, 0); }
+        if (canMove)
+        {
+            move *= runSpeed;
+            if (move < 0) { isFacingRight = false; gameObject.transform.rotation = Quaternion.Euler(0, -180, 0); }
+            if (move > 0) { isFacingRight = true; gameObject.transform.rotation = Quaternion.Euler(0, 0, 0); }
 
-        targetVelocity = new Vector3(move * 10f, m_Rigidbody.velocity.y, 0);
-        m_Rigidbody.velocity = Vector3.SmoothDamp(m_Rigidbody.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-        m_Animator.SetFloat("Velocity", Mathf.Abs(move));
+            targetVelocity = new Vector3(move * 10f, m_Rigidbody.velocity.y, 0);
+            m_Rigidbody.velocity = Vector3.SmoothDamp(m_Rigidbody.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+            m_Animator.SetFloat("Velocity", Mathf.Abs(move));
+        }
     }
 
     public void Jump()
     {
-        m_Rigidbody.velocity += new Vector3(0f, m_JumpForce, 0f);
+        if (canMove)
+            m_Rigidbody.velocity += new Vector3(0f, m_JumpForce, 0f);
     }
 
     public bool CheckForCeiling()
@@ -112,24 +118,27 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
 
     public void Roll()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, targetVelocity, out hit, 10, m_GroundLayer))
+        if (canMove)
         {
-            m_Rigidbody.Sleep();
-        }
-        else
-        {
-            if (targetVelocity == Vector3.zero)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, targetVelocity, out hit, 10, m_GroundLayer))
             {
-                Vector3 targetDir;
-
-                if (isFacingRight) targetDir = new Vector3(1, 0, 0);
-                else targetDir = new Vector3(-1, 0, 0);
-
-                m_Rigidbody.velocity += targetDir.normalized * m_RollForce;
+                m_Rigidbody.Sleep();
             }
             else
-                m_Rigidbody.velocity += targetVelocity.normalized * m_RollForce;
+            {
+                if (targetVelocity == Vector3.zero)
+                {
+                    Vector3 targetDir;
+
+                    if (isFacingRight) targetDir = new Vector3(1, 0, 0);
+                    else targetDir = new Vector3(-1, 0, 0);
+
+                    m_Rigidbody.velocity += targetDir.normalized * m_RollForce;
+                }
+                else
+                    m_Rigidbody.velocity += targetVelocity.normalized * m_RollForce;
+            }
         }
     }
 
@@ -148,6 +157,20 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
 
         m_Rigidbody.velocity += targetDir * dist;
 
+    }
+
+    public void DelayMove(float time)
+    {
+        StartCoroutine(DelayMovement(time));
+    }
+
+    IEnumerator DelayMovement(float time)
+    {
+        coroutineRunning = true;
+        canMove = false;
+        yield return new WaitForSeconds(time);
+        canMove = true;
+        coroutineRunning = false;
     }
 
 }

@@ -15,9 +15,9 @@ public class DebugStuff : MonoBehaviour
         Time.timeScale = 0.3f;
     }
 
-    public void Time01x()
+    public void Time005x()
     {
-        Time.timeScale = 0.1f;
+        Time.timeScale = 0.05f;
     }
 
 }

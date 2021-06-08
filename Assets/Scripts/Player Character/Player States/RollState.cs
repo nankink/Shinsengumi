@@ -10,8 +10,6 @@ public class RollState : State
 
     float startRollTimer => character.Movement.m_RollingTimer;
 
-    Color oldColor;
-
     public RollState(Player_Brain character, StateMachine stateMachine) : base(character, stateMachine) { }
 
     public override void Enter()
@@ -20,15 +18,16 @@ public class RollState : State
         crouch = false;
         character.b_Animator.SetTrigger("DoABarrelRoll");
 
-        // Change color
-        oldColor = character.meshMaterial.color;
-        character.meshMaterial.color = Color.blue;
+        character.Helpers.ChangeColor(Color.blue, true);
 
         character.b_Animator.SetBool("isCrouching", false);
         currentRollTimer = startRollTimer;
         roll = true;
+
         character.b_BodyCollider.isTrigger = true;
         character.b_HeadCollider.isTrigger = true;        
+        character.Health.SetTrueInvunerability(true);
+
         character.b_Rigidbody.velocity = new Vector3(character.b_Rigidbody.velocity.x, 0f, character.b_Rigidbody.velocity.z);
     }
 
@@ -37,13 +36,15 @@ public class RollState : State
         base.Exit();
         roll = false;
         character.cooldownSystem.PutOnCooldown(character.Movement);
+        
         character.b_BodyCollider.isTrigger = false;
         character.b_HeadCollider.isTrigger = false;
+        character.Health.SetTrueInvunerability(false);
+        
+
         currentRollTimer = 0;
 
-        character.meshMaterial.color = oldColor;
-
-
+        character.Helpers.ChangeColor(Color.blue, false);
     }
 
     public override void HandleInput()
@@ -59,7 +60,9 @@ public class RollState : State
 
         if(character.PlayerInput.CrouchInput && !roll) stateMachine.ChangeState(character.crouching);
 
-        else if(!roll) stateMachine.ChangeState(character.standing);
+        else if(!roll && character.b_Animator.GetBool("isSheathed")) stateMachine.ChangeState(character.standing);
+        else if(!roll && !character.b_Animator.GetBool("isSheathed")) stateMachine.ChangeState(character.imposing);
+
     }
 
     public override void PhysicsUpdate()

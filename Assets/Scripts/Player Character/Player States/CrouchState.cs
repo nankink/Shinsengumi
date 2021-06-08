@@ -9,8 +9,6 @@ public class CrouchState : GroundState
     bool belowCeiling;
     bool roll;
 
-    Color oldColor;
-
     public CrouchState(Player_Brain character, StateMachine stateMachine) : base(character, stateMachine) { }
 
     public override void Enter()
@@ -22,8 +20,7 @@ public class CrouchState : GroundState
 
         character.b_HeadCollider.enabled = false;
 
-        oldColor = character.meshMaterial.color;
-        character.meshMaterial.color = Color.green;
+        character.Helpers.ChangeColor(Color.green, true);
     }
 
     public override void Exit()
@@ -31,7 +28,7 @@ public class CrouchState : GroundState
         base.Exit();
         character.b_HeadCollider.enabled = true;
 
-        character.meshMaterial.color = oldColor;
+           character.Helpers.ChangeColor(Color.green, false);
 
     }
 
@@ -43,10 +40,16 @@ public class CrouchState : GroundState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (!character.PlayerInput.CrouchInput || belowCeiling)
+        if ((!character.PlayerInput.CrouchInput || belowCeiling) && character.b_Animator.GetBool("isSheathed"))
         {
             character.b_Animator.SetBool("isCrouching", false);
             stateMachine.ChangeState(character.standing);
+        }
+
+        if ((!character.PlayerInput.CrouchInput || belowCeiling) && !character.b_Animator.GetBool("isSheathed"))
+        {
+            character.b_Animator.SetBool("isCrouching", false);
+            stateMachine.ChangeState(character.imposing);
         }
 
         if (character.PlayerInput.RollInput && character.cooldownSystem.IsOnCooldown(character.Movement.Id)) { return; }
@@ -54,6 +57,7 @@ public class CrouchState : GroundState
         {
             stateMachine.ChangeState(character.rolling);
         }
+
     }
 
     public override void PhysicsUpdate()

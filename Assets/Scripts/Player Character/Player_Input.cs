@@ -9,6 +9,7 @@ public class Player_Input : MonoBehaviour
     protected bool i_attack;
     protected bool i_crouch;
     protected bool i_roll;
+    protected bool i_sheath;
     protected bool i_externalInputBlocked;
 
     [HideInInspector]
@@ -59,6 +60,15 @@ public class Player_Input : MonoBehaviour
             return i_roll && !playerInputBlocked && !i_externalInputBlocked;
         }
     }
+
+    public bool SheathInput
+    {
+        get
+        {
+            return i_sheath && !playerInputBlocked && !i_externalInputBlocked;
+        }
+    }
+
     #endregion
 
     private void Awake()
@@ -72,6 +82,8 @@ public class Player_Input : MonoBehaviour
         i_jump = Input.GetButton("Jump");
         i_crouch = Input.GetButton("Crouch");
         i_roll = Input.GetButton("Roll");
+
+        i_sheath = Input.GetButtonDown("Sheath");
 
         if(Input.GetButtonDown("Fire1"))
         {

@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using ShinTools;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public partial class Damageable : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth { get; set; }
 
-    public float invulnerabiltyTime;
-    public bool isInvulnerable { get; set; }
+    public float invulnerabiltyFromDamageTime;
+    public bool isInvulnerableFromDamage { get; set; }
+
+    public bool isTrueInvulnerable { get; set; }
 
     [Tooltip("Angle from which the damageable is hitable")]
     [Range(0f, 360f)]
@@ -34,19 +37,20 @@ public partial class Damageable : MonoBehaviour
 
     private void Start()
     {
-        //ResetDamage();
+        ResetDamage();
         m_Collider = GetComponent<Collider>();
     }
 
     private void Update()
     {
-        if (isInvulnerable)
+        if (isInvulnerableFromDamage)
         {
             m_timeSinceLastHit += Time.deltaTime;
-            if (m_timeSinceLastHit > invulnerabiltyTime)
+
+            if (m_timeSinceLastHit > invulnerabiltyFromDamageTime)
             {
                 m_timeSinceLastHit = 0;
-                isInvulnerable = false;
+                isInvulnerableFromDamage = false;
                 OnBecomeInvunerable.Invoke();
             }
         }
@@ -55,9 +59,28 @@ public partial class Damageable : MonoBehaviour
     public void ResetDamage()
     {
         currentHealth = maxHealth;
-        isInvulnerable = false;
+        isInvulnerableFromDamage = false;
+        isTrueInvulnerable = false;
         m_timeSinceLastHit = 0f;
         OnResetDamage.Invoke();
+    }
+
+    public void SetTrueInvunerability(bool inv)
+    {
+        isTrueInvulnerable = inv;
+    }
+
+    public void SetTrueInvunerabilityByTime(float delay, float duration)
+    {
+        StartCoroutine(TrueInvunerabilityByTime(delay, duration));
+    }
+
+    IEnumerator TrueInvunerabilityByTime(float delay, float duration)
+    {
+        yield return new WaitForSeconds(delay);
+        isTrueInvulnerable = true;
+        yield return new WaitForSeconds(duration);
+        isTrueInvulnerable = false;
     }
 
     public void SetColliderState(bool enabled)
@@ -74,7 +97,7 @@ public partial class Damageable : MonoBehaviour
             return;
         }
 
-        if (isInvulnerable)
+        if (isInvulnerableFromDamage || isTrueInvulnerable)
         {
             OnHitWhileInvunerable.Invoke();
             return;
@@ -89,7 +112,7 @@ public partial class Damageable : MonoBehaviour
         if (Vector3.Angle(forward, positionToDamager) > hitAngle * 0.5f)
             return;
 
-        isInvulnerable = true;
+        isInvulnerableFromDamage = true;
         currentHealth -= data.amount;
 
         if (currentHealth <= 0)

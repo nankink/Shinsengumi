@@ -35,10 +35,16 @@ public class FallState : GroundState
             stateMachine.ChangeState(character.crouching);
         }
 
-        else if (grounded)
+        else if (grounded && character.b_Animator.GetBool("isSheathed"))
         {
             character.b_Animator.SetBool("isJumping", false);
             stateMachine.ChangeState(character.standing);
+        }
+
+        else if (grounded && !character.b_Animator.GetBool("isSheathed"))
+        {
+            character.b_Animator.SetBool("isJumping", false);
+            stateMachine.ChangeState(character.imposing);
         }
     }
 

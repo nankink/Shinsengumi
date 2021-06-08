@@ -2,47 +2,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicCombo4_State : State
+public class BasicCombo4_State : Combo_State
 {
+    // State
     float currentTimeInState;
-    float maxTimeInState;
+    float maxTimeInState = 0.917f;
 
+    // Input
     float minInputWindow = 0;
     float maxInputWindow;
 
+    // iFrame
+    float iframeTimeMinInPercent = 0.1f;
+    float iframeTimeMin;
+    float iframeTimeInPercent = 0.9f;
+    float iframeTime;
+
+    // Movement
     float delay = 0.23f;
     float moveDist = 15f;
 
-    //Debug
-    Color oldColor;
+    bool triggerAtk;
+    bool exitAtk;
 
     public BasicCombo4_State(Player_Brain character, StateMachine stateMachine) : base(character, stateMachine) { }
 
     public override void Enter()
     {
         base.Enter();
+        // Animation
         character.b_Animator.SetTrigger("Attack");
         character.Movement.MoveForward(delay, moveDist);
 
+        triggerAtk = exitAtk = false;
+
+        // Timing
         currentTimeInState = 0;
-        maxTimeInState = character.b_Animator.GetCurrentAnimatorStateInfo(0).length;
+        Debug.Log("maxTimeInState 4: " + maxTimeInState);
+
+        // Input
+        minInputWindow *= maxTimeInState;
         maxInputWindow = maxTimeInState;
 
-        character.Attack.EquipMeleeWeapon(true);
+        // iFrame
+        iframeTime = maxTimeInState * iframeTimeInPercent;
+        iframeTimeMin = maxTimeInState * iframeTimeMinInPercent;
 
-        // Debug
-        oldColor = character.meshMaterial.color;
-        character.meshMaterial.color = Color.cyan;
+        character.Health.SetTrueInvunerabilityByTime(iframeTimeMin, iframeTime);
+
+        // Attack
+        character.Attack.EquipMeleeWeapon(true);
+        character.Attack.MeleeAttackStart();
 
     }
 
     public override void Exit()
     {
         base.Exit();
-        character.Attack.EquipMeleeWeapon(false);
         character.b_Animator.ResetTrigger("Attack");
+        currentTimeInState = 0;
 
-        character.meshMaterial.color = oldColor;
+        character.Attack.MeleeAttackEnd();
+        character.Attack.EquipMeleeWeapon(false);
     }
 
     public override void HandleInput()
@@ -53,12 +74,16 @@ public class BasicCombo4_State : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        currentTimeInState += Time.deltaTime;
 
-        if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95 && !character.b_Animator.IsInTransition(0))
+        if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !character.b_Animator.IsInTransition(0))
         {
             character.b_Animator.SetTrigger("ExitCombo");
-            stateMachine.ChangeState(character.standing);
+            character.cooldownSystem.PutOnCooldown(character.Attack);
+            stateMachine.ChangeState(character.imposing);
         }
+
+        character.Helpers.DisplayText(TextFieldUI.CurrentTimeInState, currentTimeInState.ToString());
     }
 
     public override void PhysicsUpdate()

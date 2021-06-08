@@ -17,7 +17,8 @@ public class Player_Brain : MonoBehaviour
     public CrouchState crouching;
     public JumpState jumping;
     public FallState falling;
-    
+    public ImposeState imposing;
+
     public BasicCombo1_State atk_1;
     public BasicCombo2_State atk_2;
     public BasicCombo3_State atk_3;
@@ -31,18 +32,17 @@ public class Player_Brain : MonoBehaviour
     [HideInInspector]public Damageable Health;
     [HideInInspector]public Player_Attack Attack;
     [HideInInspector]public CooldownSystem cooldownSystem;
+    [HideInInspector]public Player_Helpers Helpers;
     #endregion
 
-    public Text currentstate;
-
+    // References
+    public MeleeWeapon weapon;
     public Animator b_Animator;
     public Collider b_BodyCollider;
     public Collider b_HeadCollider;
-    public SkinnedMeshRenderer mesh;
 
     [HideInInspector]public Rigidbody b_Rigidbody;
-    [HideInInspector]public Material meshMaterial;
-    [HideInInspector]public CustomGravity customGravity;
+     [HideInInspector]public CustomGravity customGravity;
 
     void Start()
     {
@@ -55,6 +55,7 @@ public class Player_Brain : MonoBehaviour
         crouching = new CrouchState(this, stateMachineBrain);
         jumping = new JumpState(this, stateMachineBrain);
         falling = new FallState(this, stateMachineBrain);
+        imposing = new ImposeState(this, stateMachineBrain);
 
         atk_1 = new BasicCombo1_State(this, stateMachineBrain);
         atk_2 = new BasicCombo2_State(this, stateMachineBrain);
@@ -64,13 +65,15 @@ public class Player_Brain : MonoBehaviour
         PlayerInput = GetComponent<Player_Input>();
         Movement = GetComponent<Player_Movement>();
         Attack = GetComponent<Player_Attack>();
+        Helpers = GetComponent<Player_Helpers>();
         Health = GetComponent<Damageable>();
 
+        weapon = GetComponentInChildren<MeleeWeapon>();
         b_Rigidbody = GetComponent<Rigidbody>();
         customGravity = GetComponent<CustomGravity>();
 
         cooldownSystem = GetComponent<CooldownSystem>();
-        meshMaterial = mesh.material;
+
 
         stateMachineBrain.Initialize(standing);
     }
@@ -79,6 +82,9 @@ public class Player_Brain : MonoBehaviour
     {
         stateMachineBrain.CurrentState.LogicUpdate();
         stateMachineBrain.CurrentState.HandleInput();
+
+        if(Health.isTrueInvulnerable) Helpers.ChangeColor(Color.red, true);
+        else Helpers.ChangeColor(Color.black, false);
     }
 
     private void FixedUpdate()

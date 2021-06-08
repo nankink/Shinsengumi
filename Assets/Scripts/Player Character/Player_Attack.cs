@@ -4,9 +4,16 @@ using UnityEngine;
 using ShinTools;
 using System;
 
-public class Player_Attack : MonoBehaviour
+public class Player_Attack : MonoBehaviour, IHasCooldown
 {
     public bool canAttack;
+    public bool isSheathed;
+
+    // Cooldown
+    public float attackCooldown;
+    int atkId = 2;
+    public int Id => atkId;
+    public float CooldownDuration => attackCooldown;
 
     Player_Brain player_Brain;
     public MeleeWeapon meleeWeapon;
@@ -17,31 +24,9 @@ public class Player_Attack : MonoBehaviour
 
     protected Collider[] m_OverlapResult = new Collider[0];
 
-    // ANIMATOR STUFF
-    protected AnimatorStateInfo m_CurrentStateInfo;
-    protected AnimatorStateInfo m_NextStateInfo;
-    protected AnimatorStateInfo m_PreviousCurrentStateInfo;
-    protected AnimatorStateInfo m_PreviousNextStateInfo;
-    protected bool m_PreviousIsAnimatorTransitioning;
-    protected bool m_IsAnimatorTransitioning;
-    
-    readonly int m_HashMeleeAttack = Animator.StringToHash("");
-    
-    readonly int m_HashBasicCombo1 = Animator.StringToHash("");
-    readonly int m_HashBasicCombo2 = Animator.StringToHash("");
-    readonly int m_HashBasicCombo3 = Animator.StringToHash("");
-    
-    readonly int m_HashBlockInput = Animator.StringToHash("");
-
-
     public void SetCanAttack(bool canAttack)
     {
         this.canAttack = canAttack;
-    }
-
-    void Reset()
-    {
-        meleeWeapon = GetComponentInChildren<MeleeWeapon>();
     }
 
     private void Awake()
@@ -49,24 +34,14 @@ public class Player_Attack : MonoBehaviour
         meleeWeapon.SetOwner(gameObject);   
     
         player_Brain = GetComponent<Player_Brain>();
-    }
 
-    private void OnEnable()
-    {
         m_Damageable = GetComponent<Damageable>();
         m_Damageable.onDamageMessageReceivers.Add(this);
-        m_Damageable.isInvulnerable = true;
     }
 
     private void OnDisable()
     {
         m_Damageable.onDamageMessageReceivers.Remove(this);
-    }
-
-    // i dont think this is needed for my implementation
-    bool IsWeaponEquiped()
-    {
-        return false;
     }
 
     public void EquipMeleeWeapon(bool equip)
@@ -87,24 +62,6 @@ public class Player_Attack : MonoBehaviour
     {
         meleeWeapon.EndAttack();
         m_InAttack = false;
-    }
-
-    void CacheAnimatorState()
-    {
-        m_PreviousCurrentStateInfo = m_CurrentStateInfo;
-        m_PreviousNextStateInfo = m_NextStateInfo;
-        m_PreviousIsAnimatorTransitioning = m_IsAnimatorTransitioning;
-
-        m_CurrentStateInfo = player_Brain.b_Animator.GetCurrentAnimatorStateInfo(0);
-        m_NextStateInfo = player_Brain.b_Animator.GetNextAnimatorStateInfo(0);
-        m_IsAnimatorTransitioning = player_Brain.b_Animator.IsInTransition(0);
-    }
-
-    void UpdateInputBlocking()
-    {
-        bool inputBlocked = m_CurrentStateInfo.tagHash == m_HashBlockInput && !m_IsAnimatorTransitioning;
-        inputBlocked |= m_NextStateInfo.tagHash == m_HashBlockInput;
-        player_Brain.PlayerInput.playerInputBlocked = inputBlocked;
     }
 
     public void OnReceiveMessage(Message.MessageType type, object sender, object data)
@@ -137,6 +94,6 @@ public class Player_Attack : MonoBehaviour
 
     void Die(Damageable.DamageMessage damageMessage)
     {
-        m_Damageable.isInvulnerable = true;
+        m_Damageable.isInvulnerableFromDamage = true;
     }
 }

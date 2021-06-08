@@ -37,7 +37,7 @@
 
     void DisplayState(State enteredState)
     {
-       character.currentstate.text = enteredState.ToString();
+       character.Helpers.DisplayText(TextFieldUI.Current_State, enteredState.ToString());
     }
 }
 
