@@ -3239,11 +3239,11 @@ GameObject:
   - component: {fileID: 1305801779}
   - component: {fileID: 1305801785}
   - component: {fileID: 1305801778}
+  - component: {fileID: 1305801782}
   - component: {fileID: 1305801783}
   - component: {fileID: 1305801784}
   - component: {fileID: 1305801777}
   - component: {fileID: 1305801781}
-  - component: {fileID: 1305801782}
   - component: {fileID: 1305801786}
   m_Layer: 7
   m_Name: Player
