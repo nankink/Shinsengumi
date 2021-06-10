@@ -4,64 +4,43 @@ using UnityEngine;
 
 public class BasicCombo3_State : Combo_State
 {
-    // State
-    float currentTimeInState;
-    float maxTimeInState = 0.4f;
-
-    // Input
-    float minInputWindow = 0.9f;
-    float maxInputWindow;
-
-    // iFrame
-    float iframeTimeMinInPercent = 0.1f;
-    float iframeTimeMin;
-    float iframeTimeInPercent = 0.9f;
-    float iframeTime;
-
-    // Movement
-    float delay = 0.15f;
-    float moveDist = 12f;
-
-    bool triggerAtk;
-    bool exitAtk;
-
     public BasicCombo3_State(Player_Brain character, StateMachine stateMachine) : base(character, stateMachine) { }
+
+    void InitializeVariables()
+    {
+        // Cooldown
+        character.Attack.CooldownDuration = 1f;
+
+        // State
+        maxTimeInState = 0.4f;
+
+        // Input
+        minInputWindowInPercent = 0.1f;
+
+        // iFrame
+        iframeTimeMin = 0.23f;
+        iframeTime = 0.1f;
+        // the sum of both shouldnt exceed the maxTimeInState
+        // 
+
+        // Movement
+        delay = 0.15f;
+        moveDist = 12f;
+    }
 
     public override void Enter()
     {
         base.Enter();
-        // Animation
-        character.b_Animator.SetTrigger("Attack");
-        character.Movement.MoveForward(delay, moveDist);
+        InitializeVariables();
 
-        triggerAtk = exitAtk = false;
-
-        // Timing
-        currentTimeInState = 0;
-        Debug.Log("maxTimeInState 3: " + maxTimeInState);
-
-        // Input
-        minInputWindow *= maxTimeInState;
-        maxInputWindow = maxTimeInState;
-
-        // iFrame
-        iframeTime = maxTimeInState * iframeTimeInPercent;
-        iframeTimeMin = maxTimeInState * iframeTimeMinInPercent;
-
-        character.Health.SetTrueInvunerabilityByTime(iframeTimeMin, iframeTime);
-        // Attack
-        character.Attack.EquipMeleeWeapon(true);
-        character.Attack.MeleeAttackStart();
+        AttackEnter();
     }
 
     public override void Exit()
     {
         base.Exit();
-        character.b_Animator.ResetTrigger("Attack");
-        currentTimeInState = 0;
 
-        character.Attack.MeleeAttackEnd();
-        character.Attack.EquipMeleeWeapon(false);
+        AttackExit();
     }
 
     public override void HandleInput()
@@ -74,37 +53,8 @@ public class BasicCombo3_State : Combo_State
         base.LogicUpdate();
         currentTimeInState += Time.deltaTime;
 
-        if (character.PlayerInput.AttackInput)
-        {
-            if (currentTimeInState >= minInputWindow && currentTimeInState < maxInputWindow)
-            {
-                triggerAtk = true;
-            }
-        }
-        if (currentTimeInState >= maxInputWindow && !character.PlayerInput.AttackInput)
-        {
-            exitAtk = true;
-        }
-
-        if (triggerAtk)
-        {
-            if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !character.b_Animator.IsInTransition(0))
-            {
-                exitAtk = false;
-                triggerAtk = false;
-                stateMachine.ChangeState(character.atk_4);
-            }
-        }
-
-        if (exitAtk)
-        {
-            if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !character.b_Animator.IsInTransition(0))
-            {
-                character.b_Animator.SetTrigger("ExitCombo");
-                character.cooldownSystem.PutOnCooldown(character.Attack);
-                stateMachine.ChangeState(character.imposing);
-            }
-        }
+        InputCheck();
+        StateCheck(character.atk_4);
 
         character.Helpers.DisplayText(TextFieldUI.CurrentTimeInState, currentTimeInState.ToString());
     }

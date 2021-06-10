@@ -10,6 +10,7 @@ public class Player_Input : MonoBehaviour
     protected bool i_crouch;
     protected bool i_roll;
     protected bool i_sheath;
+    protected bool i_iai;
     protected bool i_externalInputBlocked;
 
     [HideInInspector]
@@ -69,6 +70,14 @@ public class Player_Input : MonoBehaviour
         }
     }
 
+    public bool IaiInput
+    {
+        get 
+        {
+            return i_iai && !playerInputBlocked && !i_externalInputBlocked;
+        }
+    }
+
     #endregion
 
     private void Awake()
@@ -90,6 +99,8 @@ public class Player_Input : MonoBehaviour
             if(i_AttackWaitCoroutine != null) StopCoroutine(i_AttackWaitCoroutine);
             i_AttackWaitCoroutine = StartCoroutine(AttackWait());
         }
+
+        i_iai = Input.GetButton("Fire2");
 
     }
 

@@ -18,10 +18,19 @@ public class Player_Sensors : MonoBehaviour
         for (int i = 0; i < sensorPoints.Length; i++)
         {
             RaycastHit hit;
-            if (Physics.Raycast(sensorPoints[i].position, Vector3.forward, out hit, maxDistance, groundLayer))
+            if (Physics.Raycast(sensorPoints[i].position, transform.right, out hit, maxDistance, groundLayer))
             {
 
             }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+            Gizmos.color = Color.red;
+        for (int i = 0; i < sensorPoints.Length; i++)
+        {
+            Gizmos.DrawLine(sensorPoints[i].position, sensorPoints[i].position + transform.right * maxDistance);
         }
     }
 }

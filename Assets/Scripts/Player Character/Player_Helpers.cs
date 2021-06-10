@@ -16,6 +16,10 @@ public class Player_Helpers : MonoBehaviour
     public Text currentstate;
     public Text invunerability;
     public Text currentTimeInState;
+    public Text cooldownTime;
+    public Text currentHealth;
+
+    Player_Brain pb;
 
     public SkinnedMeshRenderer mesh;
     [HideInInspector] public Material meshMaterial;
@@ -26,6 +30,13 @@ public class Player_Helpers : MonoBehaviour
     {
         meshMaterial = mesh.material;
         oldColor = meshMaterial.color;
+
+        pb = GetComponent<Player_Brain>();
+    }
+
+    private void Update()
+    {
+        currentHealth.text = pb.Health.currentHealth.ToString();
     }
 
     public void ChangeColor(Color color, bool active)
@@ -48,6 +59,11 @@ public class Player_Helpers : MonoBehaviour
         {
             invunerability.text = text;
         }
+    }
+
+    public void DisplayCooldown(string time)
+    {
+        cooldownTime.text = time;
     }
 
 }

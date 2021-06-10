@@ -5,7 +5,7 @@ using System;
 
 public class MeleeWeapon : MonoBehaviour
 {
-    public float damage = 1f;
+    public float Damage;
     public LayerMask targetLayers;
 
     [System.Serializable]
@@ -136,7 +136,7 @@ public class MeleeWeapon : MonoBehaviour
 
 
         Damageable.DamageMessage data;
-        data.amount = damage;
+        data.amount = Damage;
         data.damager = this;
         data.direction = mw_Direction.normalized;
         data.damageSource = mw_Owner.transform.position;

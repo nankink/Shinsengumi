@@ -6,8 +6,20 @@ using ShinTools;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public partial class Damageable : MonoBehaviour
+public class Damageable : MonoBehaviour
 {
+
+    public struct DamageMessage
+    {
+        public MonoBehaviour damager;
+        public float amount;
+        public Vector3 direction;
+        public Vector3 damageSource;
+        public bool throwing;
+
+        public bool stopCamera;
+    }
+
     public float maxHealth;
     public float currentHealth { get; set; }
 
@@ -114,6 +126,7 @@ public partial class Damageable : MonoBehaviour
 
         isInvulnerableFromDamage = true;
         currentHealth -= data.amount;
+        Debug.Log("ouch! " + currentHealth);
 
         if (currentHealth <= 0)
         {

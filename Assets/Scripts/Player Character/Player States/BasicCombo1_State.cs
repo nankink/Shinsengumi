@@ -8,13 +8,20 @@ public class BasicCombo1_State : Combo_State
 
     void InitializeVariables()
     {
+        // Cooldown
+        character.Attack.CooldownDuration = 2f;
+ 
         // State
         maxTimeInState = 0.367f;
 
         // Input
-        minInputWindow = 0.9f;
-        iframeTimeMinInPercent = 0.1f;
-        iframeTimeInPercent = 0.69f;
+        minInputWindowInPercent = 0.4f;
+
+        // iFrame
+        iframeTimeMin = 0.15f;
+        iframeTime = 0.1f;
+        // the sum of both shouldnt exceed the maxTimeInState
+        // 
 
         // Movement
         delay = 0.05f;
@@ -44,11 +51,9 @@ public class BasicCombo1_State : Combo_State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        Debug.Log("atk: " + triggerAtk + " // exit: " + exitAtk);
         currentTimeInState += Time.deltaTime;
 
         InputCheck();
-
         StateCheck(character.atk_2);
 
         character.Helpers.DisplayText(TextFieldUI.CurrentTimeInState, currentTimeInState.ToString());

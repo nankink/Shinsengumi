@@ -23,6 +23,8 @@ public class Player_Brain : MonoBehaviour
     public BasicCombo2_State atk_2;
     public BasicCombo3_State atk_3;
     public BasicCombo4_State atk_4;
+    public IaiState iaiPrepping;
+    public ForwardSlashState iaiSlashing;
 
     #endregion
 
@@ -33,6 +35,7 @@ public class Player_Brain : MonoBehaviour
     [HideInInspector]public Player_Attack Attack;
     [HideInInspector]public CooldownSystem cooldownSystem;
     [HideInInspector]public Player_Helpers Helpers;
+    
     #endregion
 
     // References
@@ -61,6 +64,9 @@ public class Player_Brain : MonoBehaviour
         atk_2 = new BasicCombo2_State(this, stateMachineBrain);
         atk_3 = new BasicCombo3_State(this, stateMachineBrain);
         atk_4 = new BasicCombo4_State(this, stateMachineBrain);
+        iaiPrepping = new IaiState(this, stateMachineBrain);
+        iaiSlashing = new ForwardSlashState(this, stateMachineBrain);
+
 
         PlayerInput = GetComponent<Player_Input>();
         Movement = GetComponent<Player_Movement>();
@@ -91,6 +97,4 @@ public class Player_Brain : MonoBehaviour
     {
         stateMachineBrain.CurrentState.PhysicsUpdate();
     }
-
-
 }

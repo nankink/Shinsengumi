@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using MyBox;
 
 public class Player_Movement : MonoBehaviour, IHasCooldown
 {
@@ -13,7 +12,7 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
     Vector3 m_Velocity = Vector3.zero;
     Vector3 targetVelocity;
     bool isFacingRight;
-    bool canMove;
+    [SerializeField]bool canMove;
     [HideInInspector]public bool coroutineRunning;
 
     // Roll
@@ -39,7 +38,7 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
 
     // Detectors
     [Header("Miscellaneous")]
-    [ReadOnly] public bool m_Grounded;
+    public bool m_Grounded;
     [SerializeField] public Transform m_GroundChecker;
     public float m_GroundedRadius = .05f;
     [SerializeField] public Transform m_CeilingChecker;

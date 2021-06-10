@@ -24,6 +24,7 @@ public class RollState : State
         currentRollTimer = startRollTimer;
         roll = true;
 
+        
         character.b_BodyCollider.isTrigger = true;
         character.b_HeadCollider.isTrigger = true;        
         character.Health.SetTrueInvunerability(true);
@@ -55,6 +56,7 @@ public class RollState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        
         if(currentRollTimer >= startRollTimer || currentRollTimer > 0) currentRollTimer -= Time.deltaTime;
         else if(currentRollTimer <= 0) roll = false;
 
