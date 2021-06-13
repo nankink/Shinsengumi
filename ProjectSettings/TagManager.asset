@@ -14,7 +14,7 @@ TagManager:
   - Damageable
   - Player
   - Enemy
-  - 
+  - ContactDamage
   - 
   - 
   - 

@@ -126,7 +126,7 @@ public class Damageable : MonoBehaviour
 
         isInvulnerableFromDamage = true;
         currentHealth -= data.amount;
-        Debug.Log("ouch! " + currentHealth);
+        Debug.Log("currentHealth: "+ currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -140,7 +140,7 @@ public class Damageable : MonoBehaviour
         var messageType = currentHealth <= 0 ? Message.MessageType.DEAD : Message.MessageType.DAMAGED;
 
         for (var i = 0; i < onDamageMessageReceivers.Count; i++)
-        {
+        { 
             var receiver = onDamageMessageReceivers[i] as Message.IMessageReceiver;
             receiver.OnReceiveMessage(messageType, this, data);
         }

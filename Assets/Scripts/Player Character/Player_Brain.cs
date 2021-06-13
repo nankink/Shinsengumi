@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player_Brain : MonoBehaviour
 {
     protected static Player_Brain pb_instance;
-    public static Player_Brain instance { get {return pb_instance;}}
+    public static Player_Brain instance { get { return pb_instance; } }
 
     #region State machine and states
     public StateMachine stateMachineBrain;
@@ -29,13 +29,14 @@ public class Player_Brain : MonoBehaviour
     #endregion
 
     #region Character Classes
-    [HideInInspector]public Player_Movement Movement;
-    [HideInInspector]public Player_Input PlayerInput;
-    [HideInInspector]public Damageable Health;
-    [HideInInspector]public Player_Attack Attack;
-    [HideInInspector]public CooldownSystem cooldownSystem;
-    [HideInInspector]public Player_Helpers Helpers;
-    
+    [HideInInspector] public Player_Movement Movement;
+    [HideInInspector] public Player_Input PlayerInput;
+    [HideInInspector] public Player_Sensors Sensors;
+    [HideInInspector] public Damageable Health;
+    [HideInInspector] public Player_Attack Attack;
+    [HideInInspector] public CooldownSystem cooldownSystem;
+    [HideInInspector] public Player_Helpers Helpers;
+
     #endregion
 
     // References
@@ -44,8 +45,8 @@ public class Player_Brain : MonoBehaviour
     public Collider b_BodyCollider;
     public Collider b_HeadCollider;
 
-    [HideInInspector]public Rigidbody b_Rigidbody;
-     [HideInInspector]public CustomGravity customGravity;
+    [HideInInspector] public Rigidbody b_Rigidbody;
+    [HideInInspector] public CustomGravity customGravity;
 
     void Start()
     {
@@ -73,6 +74,7 @@ public class Player_Brain : MonoBehaviour
         Attack = GetComponent<Player_Attack>();
         Helpers = GetComponent<Player_Helpers>();
         Health = GetComponent<Damageable>();
+        Sensors = GetComponent<Player_Sensors>();
 
         weapon = GetComponentInChildren<MeleeWeapon>();
         b_Rigidbody = GetComponent<Rigidbody>();
@@ -89,7 +91,7 @@ public class Player_Brain : MonoBehaviour
         stateMachineBrain.CurrentState.LogicUpdate();
         stateMachineBrain.CurrentState.HandleInput();
 
-        if(Health.isTrueInvulnerable) Helpers.ChangeColor(Color.red, true);
+        if (Health.isTrueInvulnerable) Helpers.ChangeColor(Color.red, true);
         else Helpers.ChangeColor(Color.black, false);
     }
 

@@ -12,8 +12,8 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
     Vector3 m_Velocity = Vector3.zero;
     Vector3 targetVelocity;
     bool isFacingRight;
-    [SerializeField]bool canMove;
-    [HideInInspector]public bool coroutineRunning;
+    [SerializeField] bool canMove;
+    [HideInInspector] public bool coroutineRunning;
 
     // Roll
     [Space]
@@ -45,7 +45,11 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
     public float m_CeilingRadius = .05f;
     [SerializeField] public LayerMask m_GroundLayer;
 
-
+    [Header("Sensoring")]
+    [Range(0f, 5f)] public float maxDistance;
+    public Transform[] sensorPoints;
+    bool[] contact;
+    bool cancelMove = false;
 
     // Components
     Rigidbody m_Rigidbody;
@@ -68,9 +72,18 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
         if (OnLandEvent == null) OnLandEvent = new UnityEvent();
         if (OnCrouchEvent == null) OnCrouchEvent = new BoolEvent();
 
+        contact = new bool[sensorPoints.Length];
+
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Animator = GetComponentInChildren<Animator>();
         customGravity = GetComponent<CustomGravity>();
+    }
+
+    private void Update()
+    {
+        BodySensoring();
+        if (CheckContact() && !m_Grounded) { cancelMove = true; Debug.Log("check"); }
+        else cancelMove = false;
     }
 
     public void MovePlayer(float move)
@@ -81,7 +94,9 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
             if (move < 0) { isFacingRight = false; gameObject.transform.rotation = Quaternion.Euler(0, -180, 0); }
             if (move > 0) { isFacingRight = true; gameObject.transform.rotation = Quaternion.Euler(0, 0, 0); }
 
-            targetVelocity = new Vector3(move * 10f, m_Rigidbody.velocity.y, 0);
+            if (cancelMove) targetVelocity = new Vector3(0, 0, 0);
+            else targetVelocity = new Vector3(move * 10f, m_Rigidbody.velocity.y, 0);
+
             m_Rigidbody.velocity = Vector3.SmoothDamp(m_Rigidbody.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
             m_Animator.SetFloat("Velocity", Mathf.Abs(move));
         }
@@ -117,29 +132,67 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
 
     public void Roll()
     {
+        Debug.Log("1");
         if (canMove)
         {
+            Debug.Log("2");
+
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, targetVelocity, out hit, 10, m_GroundLayer))
+            if (Physics.Raycast(transform.position, Vector3.forward, out hit, 10, m_GroundLayer))
             {
+                Debug.Log("3");
+
                 m_Rigidbody.Sleep();
             }
             else
             {
+                Debug.Log("4");
+
                 if (targetVelocity == Vector3.zero)
                 {
+                    Debug.Log("5");
+
                     Vector3 targetDir;
+
 
                     if (isFacingRight) targetDir = new Vector3(1, 0, 0);
                     else targetDir = new Vector3(-1, 0, 0);
+                    Debug.Log("6" + targetDir);
 
                     m_Rigidbody.velocity += targetDir.normalized * m_RollForce;
                 }
                 else
+                {
                     m_Rigidbody.velocity += targetVelocity.normalized * m_RollForce;
+                    Debug.Log("7" + targetVelocity);
+
+                }
             }
         }
     }
+
+    public void BodySensoring()
+    {
+        for (int i = 0; i < sensorPoints.Length; i++)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(sensorPoints[i].position, transform.right, out hit, maxDistance, m_GroundLayer))
+            {
+                contact[i] = true;
+            }
+            else contact[i] = false;
+        }
+    }
+
+    public bool CheckContact()
+    {
+        for (int i = 0; i < contact.Length; i++)
+        {
+            if (!contact[i]) return false;
+        }
+        return true;
+    }
+
 
     public void MoveForward(float delay, float dist)
     {
@@ -171,5 +224,16 @@ public class Player_Movement : MonoBehaviour, IHasCooldown
         canMove = true;
         coroutineRunning = false;
     }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        for (int i = 0; i < sensorPoints.Length; i++)
+        {
+            Gizmos.DrawLine(sensorPoints[i].position, sensorPoints[i].position + transform.right * maxDistance);
+        }
+    }
+
 
 }

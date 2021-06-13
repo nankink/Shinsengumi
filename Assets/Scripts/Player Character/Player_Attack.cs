@@ -4,7 +4,7 @@ using UnityEngine;
 using ShinTools;
 using System;
 
-public class Player_Attack : MonoBehaviour, IHasCooldown
+public class Player_Attack : MonoBehaviour, IHasCooldown, Message.IMessageReceiver
 {
     public bool canAttack;
     public bool isSheathed;
@@ -39,7 +39,8 @@ public class Player_Attack : MonoBehaviour, IHasCooldown
 
     private void OnEnable()
     {
-//        m_Damageable.onDamageMessageReceivers.Add(this);
+        m_Damageable = GetComponent<Damageable>();
+        m_Damageable.onDamageMessageReceivers.Add(this);
     }
 
     private void OnDisable()

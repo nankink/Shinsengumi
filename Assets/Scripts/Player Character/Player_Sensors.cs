@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class Player_Sensors : MonoBehaviour
 {
-    LayerMask groundLayer;
-    [Range(0.5f, 5f)] public float maxDistance = 1f;
+    public LayerMask groundLayer;
+    [Range(0f, 5f)] public float maxDistance;
     public Transform[] sensorPoints;
+    bool[] contact;
 
     void Start()
     {
-        groundLayer = LayerMask.NameToLayer("Ground");
+        contact = new bool[sensorPoints.Length];
+  }
+
+    private void Update()
+    {
+        BodySensoring();
+    }
+
+    public bool CheckContact()
+    {
+        for (int i = 0; i < contact.Length; i++)
+        {
+            if (!contact[i]) return false;
+        }
+        return true;
     }
 
     public void BodySensoring()
@@ -20,17 +35,19 @@ public class Player_Sensors : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(sensorPoints[i].position, transform.right, out hit, maxDistance, groundLayer))
             {
-
+                contact[i] = true;
             }
+            else contact[i] = false;
         }
     }
 
     private void OnDrawGizmos()
     {
-            Gizmos.color = Color.red;
+        Gizmos.color = Color.red;
         for (int i = 0; i < sensorPoints.Length; i++)
         {
             Gizmos.DrawLine(sensorPoints[i].position, sensorPoints[i].position + transform.right * maxDistance);
         }
     }
+
 }
