@@ -20,8 +20,10 @@ public partial class EnemyImpBehaviour : MonoBehaviour
     public Animator animator;
 
     public LayerMask groundLayer;
+    Vector3 lookRotation;
 
     public Transform somewhere;
+    float slerp;
 
     bool targetSeeing = false;
     FieldOfView fieldOfView;
@@ -37,10 +39,17 @@ public partial class EnemyImpBehaviour : MonoBehaviour
 
     private void Update()
     {
-   //     ExtraRotation();
+        if(navMeshAgent.hasPath) 
+        {
+            ExtraRotation();
+            
+        animator.SetFloat("Velocity", 1);
+        }
+        else 
+        {
 
-        if(navMeshAgent.pathPending) animator.SetFloat("Velocity", 1f);
-        else animator.SetFloat("Velocity", 0f);
+        animator.SetFloat("Velocity", 0);
+        }
 
         fsm.Driver.Update.Invoke();
     }
@@ -65,7 +74,7 @@ public partial class EnemyImpBehaviour : MonoBehaviour
 
     void ExtraRotation()
     {
-        Vector3 lookRotation = navMeshAgent.steeringTarget - transform.position;
+        lookRotation = navMeshAgent.steeringTarget - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRotation), extraRotationSpeed * Time.deltaTime);
     }
 

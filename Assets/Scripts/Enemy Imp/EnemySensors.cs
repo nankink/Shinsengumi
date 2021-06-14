@@ -33,7 +33,7 @@ public class EnemySensors : MonoBehaviour
         for (int i = 0; i < sensorPoints.Length; i++)
         {
             RaycastHit hit;
-            if (Physics.Raycast(sensorPoints[i].position, transform.right, out hit, maxDistance, groundLayer))
+            if (Physics.Raycast(sensorPoints[i].position, transform.forward, out hit, maxDistance, groundLayer))
             {
                 contact[i] = true;
             }
@@ -46,7 +46,7 @@ public class EnemySensors : MonoBehaviour
         Gizmos.color = Color.red;
         for (int i = 0; i < sensorPoints.Length; i++)
         {
-            Gizmos.DrawLine(sensorPoints[i].position, sensorPoints[i].position + transform.right * maxDistance);
+            Gizmos.DrawLine(sensorPoints[i].position, sensorPoints[i].position + transform.forward * maxDistance);
         }
     }
 }
