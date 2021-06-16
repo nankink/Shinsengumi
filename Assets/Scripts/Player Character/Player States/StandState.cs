@@ -61,6 +61,11 @@ public class StandState : GroundState
             stateMachine.ChangeState(character.imposing);
         }
 
+        if(character.PlayerInput.IaiInput && !character.cooldownSystem.IsOnCooldown(character.iaiPrepping.Id))
+        {
+            stateMachine.ChangeState(character.iaiPrepping);
+        }
+
 
     }
 

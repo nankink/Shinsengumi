@@ -4,23 +4,23 @@ using UnityEngine;
 using ShinTools;
 using System;
 
-public class Player_Attack : MonoBehaviour, IHasCooldown
+public class Player_Attack : MonoBehaviour, IHasCooldown, Message.IMessageReceiver
 {
     public bool canAttack;
     public bool isSheathed;
 
     // Cooldown
-    public float attackCooldown;
     int atkId = 2;
     public int Id => atkId;
-    public float CooldownDuration => attackCooldown;
+    public float CooldownDuration {get; set;}
 
-    Player_Brain player_Brain;
+
     public MeleeWeapon meleeWeapon;
-
+    public float damage = 3;
+    public float baseDamage;
     protected bool m_InAttack;
     protected bool m_InCombo;
-    protected Damageable m_Damageable;
+    Damageable m_Damageable;
 
     protected Collider[] m_OverlapResult = new Collider[0];
 
@@ -29,12 +29,16 @@ public class Player_Attack : MonoBehaviour, IHasCooldown
         this.canAttack = canAttack;
     }
 
-    private void Awake()
+    private void Start()
     {
         meleeWeapon.SetOwner(gameObject);   
-    
-        player_Brain = GetComponent<Player_Brain>();
 
+        m_Damageable = GetComponent<Damageable>();
+        m_Damageable.onDamageMessageReceivers.Add(this);
+    }
+
+    private void OnEnable()
+    {
         m_Damageable = GetComponent<Damageable>();
         m_Damageable.onDamageMessageReceivers.Add(this);
     }
@@ -49,7 +53,12 @@ public class Player_Attack : MonoBehaviour, IHasCooldown
         meleeWeapon.enabled = equip;
         m_InAttack = false;
         m_InCombo = equip;
-   
+
+        if(damage >= baseDamage + 5f)
+        {
+        meleeWeapon.Damage = damage;
+        }
+        else meleeWeapon.Damage = baseDamage;
     }
 
     public void MeleeAttackStart(int throwing = 0)
@@ -62,6 +71,7 @@ public class Player_Attack : MonoBehaviour, IHasCooldown
     {
         meleeWeapon.EndAttack();
         m_InAttack = false;
+        meleeWeapon.Damage = baseDamage;
     }
 
     public void OnReceiveMessage(Message.MessageType type, object sender, object data)

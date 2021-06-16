@@ -24,8 +24,9 @@ public class RollState : State
         currentRollTimer = startRollTimer;
         roll = true;
 
+
         character.b_BodyCollider.isTrigger = true;
-        character.b_HeadCollider.isTrigger = true;        
+        character.b_HeadCollider.isTrigger = true;
         character.Health.SetTrueInvunerability(true);
 
         character.b_Rigidbody.velocity = new Vector3(character.b_Rigidbody.velocity.x, 0f, character.b_Rigidbody.velocity.z);
@@ -36,11 +37,11 @@ public class RollState : State
         base.Exit();
         roll = false;
         character.cooldownSystem.PutOnCooldown(character.Movement);
-        
+
         character.b_BodyCollider.isTrigger = false;
         character.b_HeadCollider.isTrigger = false;
         character.Health.SetTrueInvunerability(false);
-        
+
 
         currentRollTimer = 0;
 
@@ -55,20 +56,21 @@ public class RollState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(currentRollTimer >= startRollTimer || currentRollTimer > 0) currentRollTimer -= Time.deltaTime;
-        else if(currentRollTimer <= 0) roll = false;
 
-        if(character.PlayerInput.CrouchInput && !roll) stateMachine.ChangeState(character.crouching);
+        if (currentRollTimer >= startRollTimer || currentRollTimer > 0) currentRollTimer -= Time.deltaTime;
+        else if (currentRollTimer <= 0) roll = false;
 
-        else if(!roll && character.b_Animator.GetBool("isSheathed")) stateMachine.ChangeState(character.standing);
-        else if(!roll && !character.b_Animator.GetBool("isSheathed")) stateMachine.ChangeState(character.imposing);
+        if (character.PlayerInput.CrouchInput && !roll) stateMachine.ChangeState(character.crouching);
+
+        else if (!roll && character.b_Animator.GetBool("isSheathed")) stateMachine.ChangeState(character.standing);
+        else if (!roll && !character.b_Animator.GetBool("isSheathed")) stateMachine.ChangeState(character.imposing);
 
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        if(roll) character.Movement.Roll();
+        if (roll) {character.Movement.Roll();}
 
     }
 }

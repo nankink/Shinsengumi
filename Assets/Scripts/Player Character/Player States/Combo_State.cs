@@ -7,12 +7,10 @@ public class Combo_State : State
     public float currentTimeInState;
     public float maxTimeInState;
 
-    public float minInputWindow;
+    public float minInputWindowInPercent;
     public float maxInputWindow;
 
-    public float iframeTimeMinInPercent;
     public float iframeTimeMin;
-    public float iframeTimeInPercent;
     public float iframeTime;
 
     public float delay;
@@ -56,11 +54,8 @@ public class Combo_State : State
         character.Movement.MoveForward(delay, moveDist);
         triggerAtk = exitAtk = false;
 
-        minInputWindow *= maxTimeInState;
+        minInputWindowInPercent *= maxTimeInState;
         maxInputWindow = maxTimeInState;
-
-        iframeTime = maxTimeInState * iframeTimeInPercent;
-        iframeTimeMin = maxTimeInState * iframeTimeMinInPercent;
 
         character.Health.SetTrueInvunerabilityByTime(iframeTimeMin, iframeTime);
 
@@ -82,7 +77,7 @@ public class Combo_State : State
     {
         if (character.PlayerInput.AttackInput)
         {
-            if (currentTimeInState >= minInputWindow && currentTimeInState < maxInputWindow)
+            if (currentTimeInState >= minInputWindowInPercent && currentTimeInState < maxInputWindow)
             {
                 triggerAtk = true;
             }
@@ -95,7 +90,7 @@ public class Combo_State : State
 
     public void StateCheck(State obj)
     {
-                if (triggerAtk)
+        if (triggerAtk)
         {
             if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !character.b_Animator.IsInTransition(0))
             {
@@ -111,8 +106,20 @@ public class Combo_State : State
             {
                 character.b_Animator.SetTrigger("ExitCombo");
                 character.cooldownSystem.PutOnCooldown(character.Attack);
+                Debug.Log("cooldown should be applied");
+                
                 stateMachine.ChangeState(character.imposing);
             }
+        }
+    }
+
+    public void StateCheckNoTrigger()
+    {
+        if (character.b_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !character.b_Animator.IsInTransition(0))
+        {
+            character.b_Animator.SetTrigger("ExitCombo");
+            character.cooldownSystem.PutOnCooldown(character.Attack);
+            stateMachine.ChangeState(character.imposing);
         }
     }
 

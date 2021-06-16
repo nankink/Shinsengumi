@@ -49,6 +49,7 @@ public class CooldownSystem : MonoBehaviour
 
 public class CooldownData
 {
+
     public CooldownData(IHasCooldown cooldown)
     {
         Id = cooldown.Id;
@@ -61,7 +62,6 @@ public class CooldownData
     public bool DecrementCooldown(float deltaTime)
     {
         RemainingTime = Mathf.Max(RemainingTime - deltaTime, 0f);
-
         return RemainingTime == 0;
     }
 

@@ -11,8 +11,8 @@ public class ImposeState : GroundState
     {
         base.Enter();
 
-        character.b_Animator.SetBool("isSheathed", false);     
-        if(character.Attack.isSheathed) {character.Movement.DelayMove(1f);}
+        character.b_Animator.SetBool("isSheathed", false);
+        if (character.Attack.isSheathed) { character.Movement.DelayMove(1f); }
         // wait for the animation
 
         character.Attack.isSheathed = false;
@@ -58,7 +58,14 @@ public class ImposeState : GroundState
             stateMachine.ChangeState(character.standing);
         }
 
-        if (character.PlayerInput.AttackInput && character.cooldownSystem.IsOnCooldown(character.Attack.Id) && character.Movement.coroutineRunning) { return; }
+        if (character.PlayerInput.IaiInput && !character.cooldownSystem.IsOnCooldown(character.iaiPrepping.Id))
+        {
+            stateMachine.ChangeState(character.iaiPrepping);
+        }
+
+
+        if (character.PlayerInput.AttackInput && character.cooldownSystem.IsOnCooldown(character.Attack.Id)) { return; }
+        else if (character.PlayerInput.AttackInput && character.Movement.coroutineRunning) { return; }
         else if (character.PlayerInput.AttackInput && !character.Movement.coroutineRunning)
         {
             stateMachine.ChangeState(character.atk_1);
